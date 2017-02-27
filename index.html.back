@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<title>Brink van der Merwe's Home Page</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		</head>
+
+		<body>
+
+			<table cellpadding="20">
+				<tr align="top">
+					<td valign="top">
+						<img width src="Solenodon.jpg" height="300" >
+						<h3><span>Brink van der Merwe</span></h3>
+					</td>
+					<td>
+						<div id="preamble">
+							<h3><span>Contact Information<span></h3>
+							Dept of Mathematical Sciences, <br>
+							Computer Science Division, <br>   
+							University of Stellenbosch, <br> 
+							Private Bag X1, 7602 Matieland, SOUTH AFRICA <br> 
+							Tel: +27 21 808 4232 <br> 
+							E-mail: abvdm -at- cs.sun.ac.za OR brinkvdm -at- gmail.com <br> 
+						</div>
+
+						<div id="preamble">
+							<h3><span>Academic Qualifications</span></h3>
+							<dl>
+								<dt>1995: PhD, Texas A&amp;M University, Advisor: Prof CJ Maxson</dt>
+							</dl>
+						</div>
+
+						<div id="preamble">
+							<h3><span>Research</span></h3>
+							<br>
+
+
+							Research interest: Automata Theory<br>
+							For a list of publications see <a href="http://scholar.google.com/citations?user=TKlHqnMAAAAJ">Google Scholar</a> and <a href="http://www.informatik.uni-trier.de/~ley/db/indices/a-tree/m/Merwe:Brink_van_der.html">DBLP</a>.<br> My 
+							<a href="vdMerwe_Intreerede.pdf">inaugural lecture</a> contains a popular description of some of my research interest.<br>
+							Have a look at my <a href="regex.html">regular expression project page</a> if you have an interest in performance related issues of Java and similar regular expression matching libraries.
+						</div>
+
+						<div id="preamble">
+							<h3><span>Editorial boards and Programme Committees</span></h3>
+							<br>
+
+							Editorial Board member of <a href="http://www.jucs.org/jucs_articles_by_author/van_der_Merwe_Brink/BusinessCard"> Journal of Universal Computer Science</a> <br>
+
+						</div>
+
+						<div id="preamble">
+							<h3><span>Previous M.Sc. Students</span></h3>
+
+
+							<dl>
+								<dt>Mohamed Taha, graduated March 2008, Regulated rewriting in formal language theory.</dt>
+								<dt>Carl Crous, graduated March 2009, Autonomous robot path planning.</dt>
+								<dt>Gerrit Greeff, graduated March 2009, Interactive voxel terrain design using procedural techniques.</dt>
+								<dt>Walter Schulze, graduated March 2010, A formal language theory approach to music generation.</dt>
+								<dt>Jan Buys, graduated December 2013, Probabilistic tree transducers for grammatical error correction. </dt>
+								<dt>Dirk Brand, graduation March 2016, Automatic prediction of comment quality.</dt>
+							</dl>
+
+							<h3><span>Current M.Sc. Students</span></h3>
+							<dl>
+								<dt>Nicolaas Weideman, Catastrophic backtracking in regular expressions.</dt>
+							</dl>	
+							<h3><span>Current PhD Students</span></h3>
+							<dl>
+								<dt>Heila van der Merwe. Verification of Android Apps.</dt>
+							</dl>
+						</div>
+
+						<div id="preamble">
+							<h3><span>Teaching</span></h3>
+
+							<dl>2017
+
+								<dd> <a href="http://www.cs.sun.ac.za/rw334">CS334 Databases and Web Programming</a> </dd>
+								<dd> <a href="http://www.cs.sun.ac.za/rw716">CS716 Functional Programming</a> </dd>
+							</dl>
+						</div>
+
+
+					</td>
+				</tr>
+			</table>
+
+
+		</body>
+</html>
+
+
+
+
+
+

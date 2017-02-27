@@ -1,0 +1,134 @@
+/* css Zen Garden default style v1.02 */
+/* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */
+
+/* This file based on 'Tranquille' by Dave Shea */
+/* You may use this file as a foundation for any new work, but you may find it easier to start from scratch. */
+/* Not all elements are defined in this file, so you'll most likely want to refer to the xhtml as well. */
+
+/* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
+
+
+/* basic elements */
+$font-stack: 'Pangolin', georgia, Helvetica, sans-serif;
+
+/*
+html {
+	margin: 0;
+	padding: 0;
+}
+*/
+body { 
+	font-family: $font-stack;
+	
+	line-height: 1.88889;
+	//color: #555753; 
+	background: #00FFFF ; 
+	//margin: 0; 
+	//padding: 0;
+}
+p { 
+	//margin-top: 0; 
+	text-align: justify;
+}
+h3 { 
+	//letter-spacing: 1px; 
+	//margin-bottom: 0; 
+	//color: #7D775C;
+}
+h1, h2, h3, h4, h5 {
+	text-align: center;
+}
+a:link { 
+	font-weight: bold; 
+	text-decoration: none; 
+	//color: #999999;
+}
+a:visited { 
+	font-weight: bold; 
+	text-decoration: none; 
+	//color: #999999;
+}
+
+a:hover, a:active { 
+	text-decoration: underline; 
+	//color: #9685BA;
+}
+
+/* using an image to replace text in an h1. This trick courtesy Douglas Bowman, http://www.stopdesign.com/articles/css/replace-text/ */
+
+
+.column {
+	background: #808080 ; 
+}
+.header {
+	background: #4169E1 ; 
+}
+.header p {
+	text-align: right;
+}
+
+.sidecolumn p {
+	text-align: right;
+}
+
+#special_header {
+	background: #808080 ; 
+}
+
+@media screen and (max-width: 700px) {
+	.header {
+		float: left;
+		padding: 1%;
+		width: 97.5%;
+		text-align: center;
+		/*border: 1px solid black;*/
+	}
+	.column {
+		float: left;
+		margin: 5px;
+		padding: 15px;
+		max-width: 500px;
+		min-width: 400px;
+		/*border: 1px solid black;*/
+	}
+	.sidecolumn {
+		float: left;
+		padding: 15px;
+		max-width: 500px;
+	}
+
+	#feature_image {
+		height: 250px;
+		width: auto;
+
+	}
+}
+@media screen and (min-width: 701px) {
+	.header {
+		float: left;
+		padding: 1%;
+		width: 97.5%;
+		text-align: center;
+		/*border: 1px solid black;*/
+	}
+	.column {
+		float: left;
+		padding: 1%;
+		width: 45%;
+		max-width: 550px;
+		/*border: 1px solid black;*/
+	}
+	.sidecolumn {
+		float: left;
+		padding: 1%;
+		width: 24%;
+		max-width: 550px;
+	/*	border: 1px solid black;*/
+	}
+
+	#feature_image {
+		width: 100%;
+		height: auto;
+		max-width: 500px
+	}
+}
