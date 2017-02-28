@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Regular Expression Static Analysis Project Page</title>
+		<link href="https://fonts.googleapis.com/css?family=Pangolin"
+		rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	
+	</head>
+
+	<body>
+
+		<header>
+			<h1><span>Regular Expression Static Analysis</span></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a><br></li>
+				<li><a href="students.html">Students and Teaching</a></li>
+				<li><a href="research.html">Academic</a></li>
+				<li><a href="contact.html">Contact Information</a></li>
+				<li><a href="regex.html">Regular Expressions</a></li>
+			</ul>
+		</nav>
+
+		<div class="column">
+			<div id="projectdescription">
+				<h3>Project Description</h3>
+
+				Catastrophic backtracking is a phenomenon that causes extended matching time when attempting to match certain input strings with so-called vulnerable regular expressions when using backtracking regular expression matchers found in programming languages such as Java, Perl and Python. It can be used to launch regular expression denial of service (ReDoS) attacks.
+				We implemented a tool that performs static analysis on regular expressions to determine whether or not they are vulnerable to these types of attacks.
+			</div>
+
+			<h3>Software</h3>
+
+			<a href="https://github.com/NicolaasWeideman/RegexStaticAnalysis">Github repository</a>
+
+			<div id="contributors">
+				<h3>Contributors</h3>
+				<ul>
+					<li><a href="http://www.cs.sun.ac.za/~abvdm">Brink van der Merwe</a></li>
+					<li>Nicolaas Weideman</li>
+				</ul>
+			</div>
+
+			<div>
+				<h3>Experimental Results</h3>
+				<p>
+				There are two versions of the analysis, namely simple analysis and full analysis.
+				The simple analysis only checks a regex for an exponential degree of ambiguity (EDA) and infinite degree of ambiguity (IDA), which can be used to determine an upper bound for the matching time.
+				The full analysis goes on to determine whether a regex indeed has an  exponential or non-linear polynomial matching time.
+				The simple analysis was performed on two repositories of regexes, namely the <a href="http://snort.org">Snort</a> repository and the <a href="http://regexlib.com">RegExLib</a> repository.
+				The results are shown in Table 1.
+				We applied full analysis on the  regexes which had either EDA or IDA according to the  simple analysis. The results of a full analysis are shown in Table 2.        
+				</p>
+				<table style="width:50%">
+					<caption>Table 1. The results of the simple analysis.</caption>
+					
+					<col class="repo" />
+					<colgroup id="simpleDataCols">
+						<col />
+						<col />
+						<col />
+						<col />
+						<col />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>Repository</th> 
+							<th>EDA</th>    
+							<th>IDA</th>  
+							<th>No IDA</th> <th>Skipped</th> 
+							<th>Timeout in EDA</th>
+							<th>Timeout in IDA</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Snort</td>
+							<td>11</td> 
+							<td>824</td>  
+							<td>8381</td> 
+							<td>3108</td>   
+							<td>103</td> 
+							<td>72</td>
+						</tr>
+						<tr>
+							<td>RegExLib</td>   
+							<td>145</td>  
+							<td>217</td> 
+							<td>1617</td>  
+							<td>912</td>     
+							<td>16</td>     
+							<td>87</td>
+						</tr>
+					</tbody>
+				</table>
+				<br>
+				<table style="width:50%">
+					<caption>Table 2. The results of the full analysis.</caption>
+					<col class="caption" />
+					<colgroup id="fullDataCols">
+						<col />
+						<col />
+						<col />
+						<col />
+						<col />
+					</colgroup>
+					<thead>
+						<tr>
+							<th>Simple Analysis</th> 
+							<th colspan="5">Full Analysis</th> 
+						</tr>
+						<tr>
+							<th>EDA</th>    
+							<th>Exponential</th> 
+							<th>Polynomial</th> 
+							<th>Linear</th>  
+							<th>Timeout in EDA</th>
+							<th>Timeout in IDA</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>156</td>  
+							<td>122</td>  
+							<td>0</td>   
+							<td>2</td>   
+							<td>32</td>     
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>IDA</td>  
+							<td>Exponential</td>  
+							<td>Polynomial</td> 
+							<td>Linear</td>  
+							<td>Timeout in EDA</td> 
+							<td>Timeout in IDA</td>
+						</tr>
+						<tr>
+							<td>1041</td>  
+							<td>0</td>  
+							<td>692</td> 
+							<td>24</td>     
+							<td>0</td>    
+							<td>325</td>
+						</tr>
+					</tbody>
+				</table> 
+			</div>
+
+			<h3>Examples</h3>
+			<h4>Polynomial matching time</h4>
+			<p>
+			Consider the regex <code>a*a*</code> with an input string of the form a<sup>n</sup>b (i.e. n repetitions of a).
+			No input string of this form will be matched by the regex, but the matcher will proceed in the following way to decide this.
+			At first, the matcher will attempt to match the input string with the regex by letting the first <code>a*</code> match all n a's.
+			When it reads the "b", it will backtrack to match only n - 1 a's with the first <code>a*</code> and 1 "a" with the second.
+			It will continue in this fashion until no "a" is matched with the first <code>a*</code> and n with the second.
+			This causes quadratic matching time in n.
+			In a similar way <code>a*a*a*</code> will have cubic matching time for input strings of the form a<sup>n</sup>b, since now the a's have to be divided between three occurrences of <code>a*</code>.
+			<br>
+			The degree of the polynomial matching time can be determined by the number of occurrences of the form <code>R<sub>1</sub>*R<sub>2</sub>*</code>, where R<sub>1</sub> and R<sub>2</sub> match some common input string.
+			For example, the regex <code>ab*b*cd*d*ef*f*g</code> will have cubic matching time for input strings of the form ab<sup>n</sup>cd<sup>n</sup>ef<sup>n</sup>h.
+			<br>
+			For a non-trivial example of a regex with non-linear polynomial matching time, consider the regex <code>\?\w.*?\[\w.*?\[\w.*?\]\]=</code> (regex 1814 in the Snort repository).
+			This regex has cubic matching time for input strings of the form "?a[a[aa([a)<sup>n</sup>a([a)<sup>n</sup>a]=[a]" (note that ([a)<sup>n</sup> should be read as n repetitions of [a.)
+			</p>
+
+			<h4>Exponential matching time</h4>
+			<p>
+			Keeping in mind the polynomial case, consider what happens when we have infinite occurrences of <code>R<sub>1</sub>*R<sub>2</sub>*</code> (where R<sub>1</sub> and R<sub>2</sub> match some common string, say "a") in a regex.
+			This can be achieved with <code>(R<sub>1</sub>*R<sub>2</sub>*)*</code>, or more simply <code>(R<sub>1</sub>*)*</code>.
+			Now there is no polynomial with degree high enough to describe the matching time of the regex, i.e. the regex has exponential matching time.
+			Explaining exponential matching time is, however, more intuitive with the regex <code>(R<sub>1</sub>|R<sub>2</sub>)*</code> for input strings of the form a<sup>n</sup>b.
+			Every "a" in the input string can be matched with either R<sub>1</sub> or R<sub>2</sub> in the regex and so the matching time is exponential in n.
+			<br>
+			For a non-trivial example of a regex with exponential matching time, consider the regex <code>^SITE\s*(\w+\s*)+\x7c</code> (regex 2318 in the Snort repository).
+			This regex has exponential matching time for input strings of the form "SITEaa(a)<sup>n</sup>E\x09a\x09" (note that (a)<sup>n</sup> should be read as n repetitions of a.)
+
+			</p>
+
+			<h3>Unimplemented Features</h3>
+			<p>
+			Some of the features not yet implemented include:
+			</p>
+			<ul>
+				<li>Lookaround assertions</li>
+				<li>Anchors</li>
+				<li>Backreferences</li>
+				<li>Named capturing groups</li>
+			</ul>
+
+			<h3>Known Issues</h3>
+			<p>In the Java, the symbol <code>\b</code> represents both a word
+			boundary and a backspace character.
+			Since we have not yet implemented lookaround assertions our tool
+			interprets <code>\b</code> as a backspace character rather than a word
+			boundary.
+			This can lead to erroneous results in the analysis.
+			Two known examples of this occurs in the regexes <code>(\s(\bon[a-zA-Z][a-z]+)\s?\=\s?[\'\"]?(javascript\:)?[\w\(\),\' ]*;?[\'\"]?)+</code> (regex 256 in the RegExLib repository) and <code>\bCOPY\b\s*\b(\w*(-)?\w*)*\b</code> (regex 2303 in the RegExLib repository).
+
+			</p>
+
+
+
+			<h3>Publications</h3>
+			<ul>
+				<li><a href="http://arxiv.org/abs/1405.5599"> Analyzing catastrophic backtracking behavior in practical regular expression matching.
+						M Berglund, F Drewes, B van der Merwe. AFL 2014. </a></li>
+				<li><a href="CIAA2015_Berglund.pdf">On the Semantics of Regular Expression Parsing in the Wild. M Berglund, B van der Merwe.
+						Implementation and Application of Automata, 292-304.</a> </li>
+				<li><a href="ciaa2016_contribution.pdf">Analyzing matching time behavior of backtracking regular expression matchers by using ambiguity of NFA. Nicolaas Weideman, Brink Van Der Merwe, Martin Berglund and Bruce Watson. CIAA 2016.</a> </li>
+			</ul>
+
+			<div id="motivation">
+				<h3>Some online accounts of catastropic backtracking</h3>
+
+				<ul>
+					<li><a href="http://stackstatus.net/post/147710624694/outage-postmortem-july-20-2016">Stack Exchange outage postmortem</a> </li>
+					<li><a href="https://swtch.com/~rsc/regexp/regexp1.html">Regular Expression Matching Can Be Simple And Fast
+							(but is slow in Java, Perl, PHP, Python, Ruby, ...) </a></li>
+					<li><a href="http://davidvgalbraith.com/how-i-fixed-atom/">How I fixed Atom</a> </li>
+					<li><a href="https://blog.liftsecurity.io/2014/11/03/regular-expression-dos-and-node.js">Regular Expression DoS and Node.js</a> </li>
+					<li><a href="https://blog.mariusschulz.com/2014/06/">Why Using the Greedy .* in Regular Expressions Is Almost Never What You Actually Want</a> </li>
+					<li><a href="http://www.benfrederickson.com/python-catastrophic-regular-expressions-and-the-gil/">Python, Catastrophic Regular Expressions and the GIL</a> </li>
+					<li><a href="http://ankitsambyal.blogspot.co.za/2013/04/catastrophic-backtracking.html">Catastrophic Backtracking</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="sidecolumn">
+			<p> adds </p>
+		</div>
+		<footer>
+			<p>Website designed by Murray Heymann 15988694</p>
+		</footer>
+	</body>
+</html>
