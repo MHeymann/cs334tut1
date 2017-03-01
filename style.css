@@ -74,7 +74,11 @@ tbody tr:nth-child(odd) {
   background: #808080; }
 
 header, footer {
-  background: #4169E1; }
+  background: #4169E1;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px; }
 
 footer p {
   text-align: right; }
@@ -92,7 +96,7 @@ nav ul a {
 #special_header {
   background: #808080; }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 800px) {
   header, footer {
     float: left;
     padding: 1%;
@@ -106,6 +110,10 @@ nav ul a {
     padding: 15px;
     max-width: 500px;
     min-width: 400px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
     /*border: 1px solid black;*/ }
 
   nav, .sidecolumn {
@@ -116,7 +124,7 @@ nav ul a {
   #feature_image {
     height: 250px;
     width: auto; } }
-@media screen and (min-width: 1201px) {
+@media screen and (min-width: 801px) {
   header, footer {
     float: left;
     padding: 1%;
@@ -125,7 +133,38 @@ nav ul a {
     /*border: 1px solid black;*/ }
 
   .column {
+    float: center;
+    padding: 1%;
+    width: 61%;
+    margin: auto;
+    /*border: 1px solid black;*/ }
+
+  .sidecolumn, aside {
     float: left;
+    padding: 1%;
+    width: 10.25%;
+    max-width: 550px; }
+
+  nav {
+    float: left;
+    padding: 1%;
+    width: 10.25%;
+    max-width: 550px; }
+
+  #feature_image {
+    width: 100%;
+    height: auto;
+    max-width: 500px; } }
+@media screen and (min-width: 1501px) {
+  header, footer {
+    float: left;
+    padding: 1%;
+    width: 97.5%;
+    text-align: center;
+    /*border: 1px solid black;*/ }
+
+  .column {
+    float: center;
     padding: 1%;
     width: 900px;
     margin: auto;
@@ -135,15 +174,13 @@ nav ul a {
     float: left;
     padding: 1%;
     width: 10.25%;
-    max-width: 550px;
-    border: 1px solid black; }
+    max-width: 550px; }
 
   nav {
     float: left;
     padding: 1%;
     width: 10.25%;
-    max-width: 550px;
-    border: 1px solid black; }
+    max-width: 550px; }
 
   #feature_image {
     width: 100%;

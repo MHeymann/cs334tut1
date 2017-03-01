@@ -1,22 +1,14 @@
-/* css Zen Garden default style v1.02 */
-/* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */
-
-/* This file based on 'Tranquille' by Dave Shea */
-/* You may use this file as a foundation for any new work, but you may find it easier to start from scratch. */
-/* Not all elements are defined in this file, so you'll most likely want to refer to the xhtml as well. */
-
-/* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
-
 
 /* basic elements */
 $font-stack: 'Pangolin', georgia, Helvetica, sans-serif;
 
-/*
-html {
-	margin: 0;
-	padding: 0;
+@mixin divborder-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
 }
-*/
+
 body { 
 	font-family: $font-stack;
 	
@@ -53,8 +45,6 @@ a:hover, a:active {
 	text-decoration: underline; 
 	//color: #9685BA;
 }
-
-/* using an image to replace text in an h1. This trick courtesy Douglas Bowman, http://www.stopdesign.com/articles/css/replace-text/ */
 
 table {
 	font-size: 0.8em;
@@ -105,6 +95,7 @@ tbody tr:nth-child(odd) {
 }
 header, footer {
 	background: #4169E1 ; 
+	@include divborder-radius(10px);
 }
 footer p {
 	text-align: right;
@@ -122,10 +113,10 @@ nav ul a {
 }
 
 #special_header {
-	background: #808080 ; 
+	background: #808080; 
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 800px) {
 	header, footer {
 		float: left;
 		padding: 1%;
@@ -139,6 +130,7 @@ nav ul a {
 		padding: 15px;
 		max-width: 500px;
 		min-width: 400px;
+		@include divborder-radius(10px);
 		/*border: 1px solid black;*/
 	}
 	nav, .sidecolumn {
@@ -153,7 +145,7 @@ nav ul a {
 
 	}
 }
-@media screen and (min-width: 1201px) {
+@media screen and (min-width: 801px) {
 	header, footer {
 		float: left;
 		padding: 1%;
@@ -162,7 +154,42 @@ nav ul a {
 		/*border: 1px solid black;*/
 	}
 	.column {
+		float: center;
+		padding: 1%;
+		width: 61%;
+		margin: auto;
+		/*border: 1px solid black;*/
+	}
+	
+	.sidecolumn, aside {
 		float: left;
+		padding: 1%;
+		width: 10.25%;
+		max-width: 550px;
+	}
+	nav{
+		float: left;
+		padding: 1%;
+		width: 10.25%;
+		max-width: 550px;
+	}
+
+	#feature_image {
+		width: 100%;
+		height: auto;
+		max-width: 500px
+	}
+}
+@media screen and (min-width: 1501px) {
+	header, footer {
+		float: left;
+		padding: 1%;
+		width: 97.5%;
+		text-align: center;
+		/*border: 1px solid black;*/
+	}
+	.column {
+		float: center;
 		padding: 1%;
 		width: 900px;
 		margin: auto;
@@ -174,14 +201,12 @@ nav ul a {
 		padding: 1%;
 		width: 10.25%;
 		max-width: 550px;
-		border: 1px solid black;
 	}
 	nav{
 		float: left;
 		padding: 1%;
 		width: 10.25%;
 		max-width: 550px;
-		border: 1px solid black;
 	}
 
 	#feature_image {
